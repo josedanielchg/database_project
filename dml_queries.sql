@@ -89,3 +89,25 @@ VALUES
 
 
 /* insert data in votes table */
+INSERT INTO poll_restaurants (poll_id, restaurant_id, is_winner)
+VALUES 
+(1, 1, true),   (1, 3, false),
+(2, 3, false),  (2, 4, true),
+(3, 5, false),  (3, 2, true),
+(4, 2, true),   (4, 3, false),
+(5, 5, false),  (5, 2, true),
+(6, 3, true),   (6, 4, false),
+(7, 1, false),  (7, 5, true),
+(8, 3, true),   (8, 1, false),
+(9, 3, true),   (9, 2, false),
+(10, 3, true),  (10, 1, false),
+(11, 2, true),  (11, 5, false),
+(12, 1, false), (12, 2, true),
+(13, 1, false), (13, 2, true),
+(14, 4, false), (14, 3, true),
+(15, 1, true),  (15, 4, false),
+(16, 4, true),  (16, 2, false),
+(17, 1, false), (17, 3, true),
+(18, 4, true),  (18, 1, false),
+(19, 3, false), (19, 1, true),
+(20, 2, false), (20, 3, true);
