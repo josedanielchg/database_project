@@ -1,11 +1,12 @@
 /* create user table */
 create table if not exists users(
 	id INT GENERATED ALWAYS AS IDENTITY,
-	email varchar(50) UNIQUE NOT NULL,
-	password varchar(255) NOT NULL,
+	email varchar(50) UNIQUE NOT NULL, -- muy corto
+	password varchar(255) NOT NULL, 
 	name varchar(255),
 	lastname varchar(255),
-	primary key(id)
+	primary key(id) -- asignar nombre al constraint pk -> PK_USERS_ID / APLICA A TODAS LAS TABLAS
+    --CONSTRAINT PK_USERS_ID primary key(id)
 );
 
 /* create restaurants table */
@@ -74,8 +75,8 @@ create table if not exists poll_restaurants(
 /* create votes table */
 create table if not exists votes(
 	id INT GENERATED ALWAYS AS IDENTITY,
-	user_id INT,
-	poll_id INT,
+	user_id INT, -- DEBEN SER OBLIGATORIO (LOS ID�S HEREDADOS DEBEN SER OBLIGATORIOS)
+	poll_id INT, -- DEBEN SER OBLIGATORIO (LOS ID�S HEREDADOS DEBEN SER OBLIGATORIOS)
 	poll_restaurant_id INT,
 	primary key(id),
 	constraint fk_user
@@ -88,7 +89,7 @@ create table if not exists votes(
 	  	references poll_restaurants(id, poll_id)
 	  	on delete set null
 	  	on update cascade
-);
+); -- DEBE EXISTIR UNICIDAD VALIADA POR LA COMBINACION DE ESTOS TRES CAMPOS us,er_id, poll_restaurant_id
 
 /* create order_users table */
 create table if not exists order_users(
@@ -128,4 +129,4 @@ create table if not exists order_products(
 	  	references products(id)
 	  	on delete set null
 	  	on update cascade
-);
+);-- es posible que se requiera la cantidad ordenada de productos
