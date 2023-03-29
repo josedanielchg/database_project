@@ -13,7 +13,8 @@ create table if not exists users(
 create table if not exists restaurants(
 	id int generated always as identity,
 	name varchar(255) unique not null,
-	opening_time timestamp not null,
+	opening_time time not null,
+	address varchar(255),
 	primary key(id)
 );
 
