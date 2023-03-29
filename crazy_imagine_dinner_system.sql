@@ -1,46 +1,49 @@
 /* create user table */
 create table if not exists users(
-	id INT GENERATED ALWAYS AS IDENTITY,
-	email varchar(50) UNIQUE NOT NULL, -- muy corto
-	password varchar(255) NOT NULL, 
+	id int generated always as identity,
+	email varchar(50) unique not null, -- muy corto
+	password varchar(255) not null, 
 	name varchar(255),
 	lastname varchar(255),
-	primary key(id) -- asignar nombre al constraint pk -> PK_USERS_ID / APLICA A TODAS LAS TABLAS
-    --CONSTRAINT PK_USERS_ID primary key(id)
+	constraint pk_user_id
+		primary key(id)
 );
 
 /* create restaurants table */
 create table if not exists restaurants(
-	id INT GENERATED ALWAYS AS IDENTITY,
-	name varchar(255) UNIQUE NOT null,
-	opening_time timestamp NOT null,
+	id int generated always as identity,
+	name varchar(255) unique not null,
+	opening_time timestamp not null,
 	primary key(id)
 );
 
 /* create food_types table */
 create table if not exists food_types(
-	id INT GENERATED ALWAYS AS IDENTITY,
-	name varchar(50) UNIQUE NOT null,
-	primary key(id)
+	id int generated always as identity,
+	name varchar(50) unique not null,
+	constraint pk_food_types_id
+		primary key(id)
 );
 
 /* create polls table */
 create table if not exists polls(
-	id INT GENERATED ALWAYS AS IDENTITY,
-	start_date timestamp NOT null,
-	end_date timestamp NOT null,
+	id int generated always as identity,
+	start_date timestamp not null,
+	end_date timestamp not null,
 	name varchar(255) not null,
-	primary key(id)
+	constraint pk_polls_id
+		primary key(id)
 );
 
 /* create products table */
 create table if not exists products(
-	id INT GENERATED ALWAYS AS IDENTITY,
-	restaurant_id INT not null,
-	food_type_id INT,
+	id int generated always as identity,
+	restaurant_id int not null,
+	food_type_id int,
 	name varchar(255) not null,
 	price money not null,
-	primary key(id),
+	constraint pk_products_id
+		primary key(id),
   	constraint fk_restaurant
       foreign key(restaurant_id) 
 	  	references restaurants(id)
@@ -55,11 +58,12 @@ create table if not exists products(
 
 /* create poll_restaurants table */
 create table if not exists poll_restaurants(
-	id int UNIQUE GENERATED ALWAYS AS IDENTITY,
+	id int unique generated always as identity,
 	poll_id int not null,
 	restaurant_id int not null,
 	is_winner bool not null default false,
-	primary key(id, poll_id),
+	constraint pk_poll_restaurants_id
+		primary key(id, poll_id),
 	constraint fk_poll
       foreign key(poll_id) 
 	  	references polls(id)
@@ -74,11 +78,12 @@ create table if not exists poll_restaurants(
 
 /* create votes table */
 create table if not exists votes(
-	id INT GENERATED ALWAYS AS IDENTITY,
-	user_id INT, -- DEBEN SER OBLIGATORIO (LOS ID�S HEREDADOS DEBEN SER OBLIGATORIOS)
-	poll_id INT, -- DEBEN SER OBLIGATORIO (LOS ID�S HEREDADOS DEBEN SER OBLIGATORIOS)
-	poll_restaurant_id INT,
-	primary key(id),
+	id int generated always as identity,
+	user_id int not null,
+	poll_id int not null,
+	poll_restaurant_id int not null,
+	constraint pk_votes_id
+		primary key(id),
 	constraint fk_user
       foreign key(user_id) 
 	  	references users(id)
@@ -89,15 +94,21 @@ create table if not exists votes(
 	  	references poll_restaurants(id, poll_id)
 	  	on delete set null
 	  	on update cascade
-); -- DEBE EXISTIR UNICIDAD VALIADA POR LA COMBINACION DE ESTOS TRES CAMPOS us,er_id, poll_restaurant_id
+);
+
+
+/* order_users table unique */
+CREATE unique INDEX votes_unique_idx ON votes(user_id, poll_id, poll_restaurant_id);
+
 
 /* create order_users table */
 create table if not exists order_users(
-	id INT GENERATED ALWAYS AS IDENTITY,
-	user_id INT,
-	poll_restaurant_id INT,
-	surplus_money FLOAT,
-	primary key(id),
+	id int generated always as identity,
+	user_id int not null,
+	poll_restaurant_id int not null,
+	surplus_money float,
+	constraint pk_order_users_id
+		primary key(id),
 	constraint fk_user
       foreign key(user_id) 
 	  	references users(id)
@@ -111,14 +122,16 @@ create table if not exists order_users(
 );
 
 /* order_users table unique */
-CREATE UNIQUE INDEX order_users_user_poll_idx ON order_users(user_id, poll_restaurant_id);
+CREATE unique INDEX order_users_unique_idx ON order_users(user_id, poll_restaurant_id);
 
 /* create order_products table */
 create table if not exists order_products(
-	id INT GENERATED ALWAYS AS IDENTITY,	
-	order_user_id INT,
-	product_id INT,
-	primary key(id),
+	id int generated always as identity,	
+	order_user_id int not null,
+	product_id int not null,
+	quantity int default 0,
+	constraint pk_order_products_id
+		primary key(id),
 	constraint fk_order_user
       foreign key(order_user_id) 
 	  	references order_users(id)
@@ -128,5 +141,7 @@ create table if not exists order_products(
       foreign key(product_id) 
 	  	references products(id)
 	  	on delete set null
-	  	on update cascade
-);-- es posible que se requiera la cantidad ordenada de productos
+	  	on update cascade,
+	constraint quantity_unsigned
+		check(quantity >= 0)
+);
