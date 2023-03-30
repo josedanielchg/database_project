@@ -9,8 +9,17 @@ select concat(u.name, ' ',u.lastname) as full_name from users u where u.id in
 select count(*) as restaurant_quantity from restaurants;
 
 /* Return the restaurants (name capitalized) with products that has a specific food type */
-select upper(name) as name from restaurants r where r.id in (select restaurant_id from products p where p.food_type_id in
-    (select id from food_types f where f.name like '%Pasta%'));
+select upper(name) as name 
+    from restaurants r 
+    where r.id in (
+        select restaurant_id 
+            from products p 
+            where p.food_type_id in (
+                select id 
+                    from food_types f 
+                    where f.name like '%Pasta%'
+                )
+    );
 
 /* Return the food type max price in specific restaurant */
 select max(price) as price, (select f.name from food_types f where id = food_type_id) as food_type from products p

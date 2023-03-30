@@ -1,46 +1,46 @@
 /* insert data in users table */
 insert into users (email, password, name, lastname)
 values 
-('john.doe@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'John', 'Doe'),            -- ID: 01
-('jane.smith@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Jane', 'Smith'),        -- ID: 02
-('david.jones@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'David', 'Jones'),      -- ID: 03
-('sara.lee@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Sara', 'Lee'),            -- ID: 04
-('mike.chang@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Mike', 'Chang'),        -- ID: 05
-('emily.nguyen@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Emily', 'Nguyen'),    -- ID: 06
-('alex.kim@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Alex', 'Kim'),            -- ID: 07
-('jessica.garcia@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Jessica', 'Garcia'),-- ID: 08
-('kevin.wang@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Kevin', 'Wang'),        -- ID: 09
-('amanda.brown@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Amanda', 'Brown');    -- ID: 10
+('john.doe@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'John', 'Doe'),                -- ID: 01
+('jane.smith@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Jane', 'Smith'),            -- ID: 02
+('david.jones@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'David', 'Jones'),          -- ID: 03
+('sara.lee@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Sara', 'Lee'),                -- ID: 04
+('mike.chang@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Mike', 'Chang'),            -- ID: 05
+('emily.nguyen@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Emily', 'Nguyen'),        -- ID: 06
+('alex.kim@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Alex', 'Kim'),                -- ID: 07
+('jessica.garcia@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Jessica', 'Garcia'),    -- ID: 08
+('kevin.wang@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Kevin', 'Wang'),            -- ID: 09
+('amanda.brown@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Amanda', 'Brown');        -- ID: 10
 
 
 /* insert data in restaurants table */
 insert into restaurants (name, opening_time, closing_time, address)
-VALUES
-('Pizza Palace', '4:30:00', '12:30:00', '123 Main St.'),
-('Taco Town', '8:00:00', '16:00:00', '456 Elm St.'),
-('Burger Barn', '12:30:00', '20:30:00', '789 Oak St.'),
-('Sushi Shack', '16:00:00', '00:00:00', '321 Maple St.'),
-('Thai Terrace', '20:30:00', '23:30:00', '654 Pine St.');
+values
+('Pizza Palace', '4:30:00', '12:30:00', '123 Main St.'),        -- ID: 01
+('Taco Town', '8:00:00', '16:00:00', '456 Elm St.'),            -- ID: 02
+('Burger Barn', '12:30:00', '20:30:00', '789 Oak St.'),         -- ID: 03
+('Sushi Shack', '16:00:00', '00:00:00', '321 Maple St.'),       -- ID: 04
+('Thai Terrace', '20:30:00', '23:30:00', '654 Pine St.');       -- ID: 05
 
 
 /* insert data in food_types table */
 insert into food_types (name)
-VALUES 
-('Pizza'),
-('Tacos'),
-('Burgers'),
-('Sushi'),
-('Thai Curry'),
-('Steak'),
-('Pasta'),
-('Salad'),
-('BBQ'),
-('Seafood');
+values 
+('Pizza'),          -- ID: 01
+('Tacos'),          -- ID: 02
+('Burgers'),        -- ID: 03
+('Sushi'),          -- ID: 04
+('Thai Curry'),     -- ID: 05
+('Steak'),          -- ID: 06
+('Pasta'),          -- ID: 07
+('Salad'),          -- ID: 08
+('BBQ'),            -- ID: 09
+('Seafood');        -- ID: 10
 
 
 /* insert data in products table */
 insert into products (restaurant_id, food_type_id, name, price)
-VALUES 
+values 
 (1, 1, 'Pepperoni Pizza', 12.99),           -- ID: 01
 (1, 1, 'Margherita Pizza', 11.99),          -- ID: 02
 (2, 2, 'Beef Tacos', 9.99),                 -- ID: 03
@@ -60,33 +60,33 @@ VALUES
 (4, 9, 'Pulled Pork Sandwich', 9.99),       -- ID: 17
 (4, 9, 'Brisket Plate', 12.99),             -- ID: 18
 (5, 10, 'Crab Cakes', 14.99),               -- ID: 19
-(5, 10, 'Shrimp Scampi', 15.99),           -- ID: 20
+(5, 10, 'Shrimp Scampi', 15.99),            -- ID: 20
 (1, 7, 'Spaghetti and Cheese', 14.99);      -- ID: 21
 
 
 /* insert data in polls table */
 insert into polls (start_date, end_date, name)
-VALUES 
-('2023-04-05 09:00:00', '2023-04-06 16:00:00', 'Dinner Vote - April 5th'),
-('2023-04-12 09:00:00', '2023-04-13 16:00:00', 'Dinner Vote - April 12th'),
-('2023-04-19 09:00:00', '2023-04-20 16:00:00', 'Dinner Vote - April 19th'),
-('2023-04-26 09:00:00', '2023-04-27 16:00:00', 'Dinner Vote - April 26th'),
-('2023-05-03 09:00:00', '2023-05-04 16:00:00', 'Dinner Vote - May 3rd'),
-('2023-05-10 09:00:00', '2023-05-11 16:00:00', 'Dinner Vote - May 10th'),   
-('2023-05-17 09:00:00', '2023-05-18 16:00:00', 'Dinner Vote - May 17th'),
-('2023-05-24 09:00:00', '2023-05-25 16:00:00', 'Dinner Vote - May 24th'),
-('2023-05-31 09:00:00', '2023-06-01 16:00:00', 'Dinner Vote - May 31st'),
-('2023-06-07 09:00:00', '2023-06-08 16:00:00', 'Dinner Vote - June 7th'),
-('2023-06-14 09:00:00', '2023-06-15 16:00:00', 'Dinner Vote - June 14th'),
-('2023-06-21 09:00:00', '2023-06-22 16:00:00', 'Dinner Vote - June 21st'),
-('2023-06-28 09:00:00', '2023-06-29 16:00:00', 'Dinner Vote - June 28th'),
-('2023-07-05 09:00:00', '2023-07-06 16:00:00', 'Dinner Vote - July 5th'),
-('2023-07-12 09:00:00', '2023-07-13 16:00:00', 'Dinner Vote - July 12th');
+values 
+('2023-04-05 09:00:00', '2023-04-06 16:00:00', 'Dinner Vote - April 5th'),      -- ID: 01
+('2023-04-12 09:00:00', '2023-04-13 16:00:00', 'Dinner Vote - April 12th'),     -- ID: 02
+('2023-04-19 09:00:00', '2023-04-20 16:00:00', 'Dinner Vote - April 19th'),     -- ID: 03
+('2023-04-26 09:00:00', '2023-04-27 16:00:00', 'Dinner Vote - April 26th'),     -- ID: 04
+('2023-05-03 09:00:00', '2023-05-04 16:00:00', 'Dinner Vote - May 3rd'),        -- ID: 05
+('2023-05-10 09:00:00', '2023-05-11 16:00:00', 'Dinner Vote - May 10th'),       -- ID: 06
+('2023-05-17 09:00:00', '2023-05-18 16:00:00', 'Dinner Vote - May 17th'),       -- ID: 07
+('2023-05-24 09:00:00', '2023-05-25 16:00:00', 'Dinner Vote - May 24th'),       -- ID: 08
+('2023-05-31 09:00:00', '2023-06-01 16:00:00', 'Dinner Vote - May 31st'),       -- ID: 09
+('2023-06-07 09:00:00', '2023-06-08 16:00:00', 'Dinner Vote - June 7th'),       -- ID: 10
+('2023-06-14 09:00:00', '2023-06-15 16:00:00', 'Dinner Vote - June 14th'),      -- ID: 11
+('2023-06-21 09:00:00', '2023-06-22 16:00:00', 'Dinner Vote - June 21st'),      -- ID: 12
+('2023-06-28 09:00:00', '2023-06-29 16:00:00', 'Dinner Vote - June 28th'),      -- ID: 13
+('2023-07-05 09:00:00', '2023-07-06 16:00:00', 'Dinner Vote - July 5th'),       -- ID: 14
+('2023-07-12 09:00:00', '2023-07-13 16:00:00', 'Dinner Vote - July 12th');      -- ID: 15
 
 
 /* insert data in poll_restaurants table */
 insert into poll_restaurants (poll_id, restaurant_id, is_winner)
-VALUES 
+values 
 (1, 1, true),   (1, 3, false),  -- id = 01 y 02
 (2, 3, false),  (2, 4, true),   -- id = 03 y 04
 (3, 5, false),  (3, 2, true),   -- id = 05 y 06
@@ -106,7 +106,7 @@ VALUES
 
 /* insert data in votes table */
 insert into votes (user_id, poll_id, poll_restaurant_id) 
-VALUES 
+values 
 (1, 1, 1), (3, 1, 1), (5, 1, 1), (7, 1, 1), (9, 1, 1),               -- poll_restaurant_id = 1
 (2, 1, 2), (4, 1, 2), (6, 1, 2), (8, 1, 2),                          -- poll_restaurant_id = 2
 (1, 2, 3), (3, 2, 3), (5, 2, 3), (7, 2, 3),                          -- poll_restaurant_id = 3
@@ -141,7 +141,7 @@ VALUES
 
 /* insert data in order_users table */
 insert into order_users (user_id, poll_restaurant_id, surplus_money) 
-VALUES 
+values 
 (1, 1, 0.5), (3, 1, 0.5), (5, 1, 0.5), (7, 1, 0.5), (9, 1, 0.5), (2, 1, 0.5), (4, 1, 0.5), (6, 1, 0.5), (8, 1, 0.5),            -- winner of the poll 1 => poll_restaurant_id = 1
 (1, 4, 0.5), (3, 4, 0.5), (5, 4, 0.5), (7, 4, 0.5), (2, 4, 0.5), (4, 4, 0.5), (6, 4, 0.5), (8, 4, 0.5), (10, 4, 0.5),           -- winner of the poll 2 => poll_restaurant_id = 4
 (1, 6, 0.5), (3, 6, 0.5), (5, 6, 0.5), (7, 6, 0.5), (2, 6, 0.5), (4, 6, 0.5), (6, 6, 0.5), (8, 6, 0.5), (10, 6, 0.5),           -- winner of the poll 3 => poll_restaurant_id = 6
@@ -161,7 +161,7 @@ VALUES
 
 /* insert data in order_products table */
 insert into order_products (order_user_id, product_id)
-VALUES
+values
 (1, 1), (2, 1), (3, 2), (4, 2), (5, 11), (6, 11), (7, 12), (8, 12), (9, 12),                      -- poll_restaurant_id = 1 / All products have to be from restaurant_id = 1
 (10, 7), (11, 7), (12, 8), (13, 8), (14, 17), (15, 17), (16, 18), (17, 18), (18, 18),             -- poll_restaurant_id = 4 / All products have to be from restaurant_id = 4
 (19, 3), (20, 3), (21, 4), (22, 4), (23, 13), (24, 13), (25, 14), (26, 14), (27, 14),             -- poll_restaurant_id = 6 / All products have to be from restaurant_id = 2
