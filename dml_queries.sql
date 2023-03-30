@@ -14,9 +14,8 @@ values
 
 
 /* insert data in restaurants table */
-INSERT INTO restaurants (name, opening_time, address)
-VALUES 
-('Pizza Palace', '0:00:00', '8:00:00', '123 Main St.'),
+insert into restaurants (name, opening_time, closing_time, address)
+VALUES
 ('Pizza Palace', '4:30:00', '12:30:00', '123 Main St.'),
 ('Taco Town', '8:00:00', '16:00:00', '456 Elm St.'),
 ('Burger Barn', '12:30:00', '20:30:00', '789 Oak St.'),
@@ -25,7 +24,7 @@ VALUES
 
 
 /* insert data in food_types table */
-INSERT INTO food_types (name)
+insert into food_types (name)
 VALUES 
 ('Pizza'),
 ('Tacos'),
@@ -40,7 +39,7 @@ VALUES
 
 
 /* insert data in products table */
-INSERT INTO products (restaurant_id, food_type_id, name, price)
+insert into products (restaurant_id, food_type_id, name, price)
 VALUES 
 (1, 1, 'Pepperoni Pizza', 12.99),           -- ID: 01
 (1, 1, 'Margherita Pizza', 11.99),          -- ID: 02
@@ -61,12 +60,12 @@ VALUES
 (4, 9, 'Pulled Pork Sandwich', 9.99),       -- ID: 17
 (4, 9, 'Brisket Plate', 12.99),             -- ID: 18
 (5, 10, 'Crab Cakes', 14.99),               -- ID: 19
-(5, 10, 'Shrimp Scampi', 15.99);            -- ID: 20
-(1, 7, 'Spaghetti and Cheese', 14.99),      -- ID: 21
+(5, 10, 'Shrimp Scampi', 15.99),           -- ID: 20
+(1, 7, 'Spaghetti and Cheese', 14.99);      -- ID: 21
 
 
 /* insert data in polls table */
-INSERT INTO polls (start_date, end_date, name)
+insert into polls (start_date, end_date, name)
 VALUES 
 ('2023-04-05 09:00:00', '2023-04-06 16:00:00', 'Dinner Vote - April 5th'),
 ('2023-04-12 09:00:00', '2023-04-13 16:00:00', 'Dinner Vote - April 12th'),
@@ -86,7 +85,7 @@ VALUES
 
 
 /* insert data in poll_restaurants table */
-INSERT INTO poll_restaurants (poll_id, restaurant_id, is_winner)
+insert into poll_restaurants (poll_id, restaurant_id, is_winner)
 VALUES 
 (1, 1, true),   (1, 3, false),  -- id = 01 y 02
 (2, 3, false),  (2, 4, true),   -- id = 03 y 04
@@ -106,7 +105,7 @@ VALUES
 
 
 /* insert data in votes table */
-INSERT INTO votes (user_id, poll_id, poll_restaurant_id) 
+insert into votes (user_id, poll_id, poll_restaurant_id) 
 VALUES 
 (1, 1, 1), (3, 1, 1), (5, 1, 1), (7, 1, 1), (9, 1, 1),               -- poll_restaurant_id = 1
 (2, 1, 2), (4, 1, 2), (6, 1, 2), (8, 1, 2),                          -- poll_restaurant_id = 2
@@ -141,7 +140,7 @@ VALUES
 
 
 /* insert data in order_users table */
-INSERT INTO order_users (user_id, poll_restaurant_id, surplus_money) 
+insert into order_users (user_id, poll_restaurant_id, surplus_money) 
 VALUES 
 (1, 1, 0.5), (3, 1, 0.5), (5, 1, 0.5), (7, 1, 0.5), (9, 1, 0.5), (2, 1, 0.5), (4, 1, 0.5), (6, 1, 0.5), (8, 1, 0.5),            -- winner of the poll 1 => poll_restaurant_id = 1
 (1, 4, 0.5), (3, 4, 0.5), (5, 4, 0.5), (7, 4, 0.5), (2, 4, 0.5), (4, 4, 0.5), (6, 4, 0.5), (8, 4, 0.5), (10, 4, 0.5),           -- winner of the poll 2 => poll_restaurant_id = 4
@@ -161,7 +160,7 @@ VALUES
 
 
 /* insert data in order_products table */
-INSERT INTO order_products (order_user_id, product_id)
+insert into order_products (order_user_id, product_id)
 VALUES
 (1, 1), (2, 1), (3, 2), (4, 2), (5, 11), (6, 11), (7, 12), (8, 12), (9, 12),                      -- poll_restaurant_id = 1 / All products have to be from restaurant_id = 1
 (10, 7), (11, 7), (12, 8), (13, 8), (14, 17), (15, 17), (16, 18), (17, 18), (18, 18),             -- poll_restaurant_id = 4 / All products have to be from restaurant_id = 4
