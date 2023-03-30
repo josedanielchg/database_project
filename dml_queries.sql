@@ -62,6 +62,7 @@ VALUES
 (4, 9, 'Brisket Plate', 12.99),             -- ID: 18
 (5, 10, 'Crab Cakes', 14.99),               -- ID: 19
 (5, 10, 'Shrimp Scampi', 15.99);            -- ID: 20
+(1, 7, 'Spaghetti and Cheese', 14.99),      -- ID: 21
 
 
 /* insert data in polls table */
