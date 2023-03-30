@@ -43,6 +43,7 @@ INSERT INTO products (restaurant_id, food_type_id, name, price)
 VALUES 
 (1, 1, 'Pepperoni Pizza', 12.99),
 (1, 1, 'Margherita Pizza', 11.99),
+(1, 7, 'Spaghetti and Cheese', 14.99),
 (2, 2, 'Beef Tacos', 9.99),
 (2, 2, 'Fish Tacos', 10.99),
 (3, 3, 'Cheeseburger', 8.99),
