@@ -44,5 +44,6 @@ select p.name as product_name from users u
     where u.email like '%amanda.brown@example.com%'
     group by p.name;
 
-select p.name as product_name from products p
+/* Returns the product name with the food type */
+select p.name as product_name, ft.name as foot_type from products p
     inner join food_types ft on (p.food_type_id = ft.id);
