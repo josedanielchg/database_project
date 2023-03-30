@@ -1,7 +1,7 @@
 /* create user table */
 create table if not exists users(
 	id int generated always as identity,
-	email varchar(50) unique not null, -- muy corto
+	email varchar(150) unique not null, -- muy corto
 	password varchar(255) not null, 
 	name varchar(255),
 	lastname varchar(255),
@@ -14,6 +14,7 @@ create table if not exists restaurants(
 	id int generated always as identity,
 	name varchar(255) unique not null,
 	opening_time time not null,
+	closing_time time not null,
 	address varchar(255),
 	primary key(id)
 );
