@@ -17,7 +17,7 @@ select max(price) as price, (select f.name from food_types f where id = food_typ
     group by p.food_type_id, p.restaurant_id having p.restaurant_id = 2;
 
 /* Return to the restaurants that are open at this moment */
-select * from restaurants r where r.opening_time < CURRENT_TIME and r.close_time > CURRENT_TIME;
+select * from restaurants r where r.opening_time < CURRENT_TIME and r.closing_time > CURRENT_TIME;
 
 /* SELECT QUERIES WITH JOIN */
 
