@@ -29,3 +29,20 @@ select p.name as product_name, p.price as products_price, r.name as restaurant_n
 select r.name as restaurant_name from poll_restaurants pr
     inner join restaurants r on r.id = pr.restaurant_id  where pr.poll_id = 1;
 
+/* Returns the polls that the user has participated */
+select poll.name
+    from users u
+         inner join votes v on (u.id = v.user_id)
+         inner join polls poll on (v.poll_id = poll.id)
+    where u.email like '%amanda.brown@example.com%';
+
+/* Returns the products that the user bought */
+select p.name as product_name from users u
+    inner join order_users ordu on (u.id = ordu.user_id)
+    inner join order_products op on (ordu.id = op.order_user_id)
+    inner join products p on (op.product_id = p.id)
+    where u.email like '%amanda.brown@example.com%'
+    group by p.name;
+
+select p.name as product_name from products p
+    inner join food_types ft on (p.food_type_id = ft.id);
