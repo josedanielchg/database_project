@@ -16,11 +16,12 @@ values
 /* insert data in restaurants table */
 INSERT INTO restaurants (name, opening_time, address)
 VALUES 
-('Pizza Palace', '12:00:00', '123 Main St.'),
-('Taco Town', '11:00:00', '456 Elm St.'),
-('Burger Barn', '13:00:00', '789 Oak St.'),
-('Sushi Shack', '18:00:00', '321 Maple St.'),
-('Thai Terrace', '17:30:00', '654 Pine St.');
+('Pizza Palace', '0:00:00', '8:00:00', '123 Main St.'),
+('Pizza Palace', '4:30:00', '12:30:00', '123 Main St.'),
+('Taco Town', '8:00:00', '16:00:00', '456 Elm St.'),
+('Burger Barn', '12:30:00', '20:30:00', '789 Oak St.'),
+('Sushi Shack', '16:00:00', '00:00:00', '321 Maple St.'),
+('Thai Terrace', '20:30:00', '23:30:00', '654 Pine St.');
 
 
 /* insert data in food_types table */
@@ -41,26 +42,26 @@ VALUES
 /* insert data in products table */
 INSERT INTO products (restaurant_id, food_type_id, name, price)
 VALUES 
-(1, 1, 'Pepperoni Pizza', 12.99),
-(1, 1, 'Margherita Pizza', 11.99),
-(2, 2, 'Beef Tacos', 9.99),
-(2, 2, 'Fish Tacos', 10.99),
-(3, 3, 'Cheeseburger', 8.99),
-(3, 3, 'Bacon Cheeseburger', 9.99),
-(4, 4, 'California Roll', 7.99),
-(4, 4, 'Spicy Tuna Roll', 8.99),
-(5, 5, 'Green Curry', 11.99),
-(5, 5, 'Pad Thai', 10.99),
-(1, 6, 'Grilled Steak', 16.99),
-(1, 6, 'Filet Mignon', 24.99),
-(2, 7, 'Spaghetti and Meatballs', 12.99),
-(2, 7, 'Lasagna', 14.99),
-(3, 8, 'Caesar Salad', 7.99),
-(3, 8, 'Greek Salad', 8.99),
-(4, 9, 'Pulled Pork Sandwich', 9.99),
-(4, 9, 'Brisket Plate', 12.99),
-(5, 10, 'Crab Cakes', 14.99),
-(5, 10, 'Shrimp Scampi', 15.99);
+(1, 1, 'Pepperoni Pizza', 12.99),           -- ID: 01
+(1, 1, 'Margherita Pizza', 11.99),          -- ID: 02
+(2, 2, 'Beef Tacos', 9.99),                 -- ID: 03
+(2, 2, 'Fish Tacos', 10.99),                -- ID: 04
+(3, 3, 'Cheeseburger', 8.99),               -- ID: 05
+(3, 3, 'Bacon Cheeseburger', 9.99),         -- ID: 06
+(4, 4, 'California Roll', 7.99),            -- ID: 07
+(4, 4, 'Spicy Tuna Roll', 8.99),            -- ID: 08
+(5, 5, 'Green Curry', 11.99),               -- ID: 09
+(5, 5, 'Pad Thai', 10.99),                  -- ID: 10
+(1, 6, 'Grilled Steak', 16.99),             -- ID: 11
+(1, 6, 'Filet Mignon', 24.99),              -- ID: 12
+(2, 7, 'Spaghetti and Meatballs', 12.99),   -- ID: 13
+(2, 7, 'Lasagna', 14.99),                   -- ID: 14
+(3, 8, 'Caesar Salad', 7.99),               -- ID: 15
+(3, 8, 'Greek Salad', 8.99),                -- ID: 16
+(4, 9, 'Pulled Pork Sandwich', 9.99),       -- ID: 17
+(4, 9, 'Brisket Plate', 12.99),             -- ID: 18
+(5, 10, 'Crab Cakes', 14.99),               -- ID: 19
+(5, 10, 'Shrimp Scampi', 15.99);            -- ID: 20
 
 
 /* insert data in polls table */
@@ -156,3 +157,23 @@ VALUES
 (1, 26, 0.5), (3, 26, 0.5), (5, 26, 0.5), (7, 26, 0.5), (2, 26, 0.5), (4, 26, 0.5), (6, 26, 0.5), (8, 26, 0.5), (10, 26, 0.5),  -- winner of the poll 13 => poll_restaurant_id = 26
 (1, 28, 0.5), (3, 28, 0.5), (5, 28, 0.5), (7, 28, 0.5), (2, 28, 0.5), (4, 28, 0.5), (6, 28, 0.5), (8, 28, 0.5), (10, 28, 0.5),  -- winner of the poll 14 => poll_restaurant_id = 28
 (1, 29, 0.5), (3, 29, 0.5), (5, 29, 0.5), (7, 29, 0.5), (9, 29, 0.5),  (2, 29, 0.5), (4, 29, 0.5), (6, 29, 0.5), (8, 29, 0.5);  -- winner of the poll 15 => poll_restaurant_id = 29
+
+
+/* insert data in order_products table */
+INSERT INTO order_products (order_user_id, product_id)
+VALUES
+(1, 1), (2, 1), (3, 2), (4, 2), (5, 11), (6, 11), (7, 12), (8, 12), (9, 12),                      -- poll_restaurant_id = 1 / All products have to be from restaurant_id = 1
+(10, 7), (11, 7), (12, 8), (13, 8), (14, 17), (15, 17), (16, 18), (17, 18), (18, 18),             -- poll_restaurant_id = 4 / All products have to be from restaurant_id = 4
+(19, 3), (20, 3), (21, 4), (22, 4), (23, 13), (24, 13), (25, 14), (26, 14), (27, 14),             -- poll_restaurant_id = 6 / All products have to be from restaurant_id = 2
+(28, 3), (29, 3), (30, 4), (31, 4), (32, 13), (33, 13), (34, 14), (35, 14), (36, 14),             -- poll_restaurant_id = 7 / All products have to be from restaurant_id = 2
+(37, 3), (38, 4), (39, 4), (40, 4), (41, 13), (42, 13), (43, 14), (44, 14), (45, 14),             -- poll_restaurant_id = 10 / All products have to be from restaurant_id = 2
+(46, 5), (47, 5), (48, 6), (49, 6), (50, 15), (51, 15), (52, 16), (53, 16), (54, 16),             -- poll_restaurant_id = 11 / All products have to be from restaurant_id = 3
+(55, 9), (56, 9), (57, 10), (58, 10), (59, 19), (60, 19), (61, 20), (62, 20), (63, 20),           -- poll_restaurant_id = 14 / All products have to be from restaurant_id = 5
+(64, 1), (65, 1), (66, 2), (67, 2), (68, 11), (69, 11), (70, 12), (71, 12), (72, 12),             -- poll_restaurant_id = 16 / All products have to be from restaurant_id = 1
+(73, 5), (74, 5), (75, 6), (76, 6), (77, 15), (78, 15), (79, 16), (80, 16), (81, 16),             -- poll_restaurant_id = 17 / All products have to be from restaurant_id = 3
+(82, 5), (83, 5), (84, 6), (85, 6), (86, 15), (87, 15), (88, 16), (89, 16), (90, 16),             -- poll_restaurant_id = 19 / All products have to be from restaurant_id = 3
+(91, 3), (92, 3), (93, 4), (94, 4), (95, 13), (96, 13), (97, 14), (98, 14), (99, 14),             -- poll_restaurant_id = 21 / All products have to be from restaurant_id = 2
+(100, 3), (101, 3), (102, 4), (103, 4), (104, 13), (105, 13), (106, 14), (107, 14), (108, 14),    -- poll_restaurant_id = 24 / All products have to be from restaurant_id = 2
+(109, 3), (110, 3), (111, 4), (112, 4), (113, 13), (114, 13), (115, 14), (116, 14), (117, 14),    -- poll_restaurant_id = 26 / All products have to be from restaurant_id = 2
+(118, 5), (119, 6), (120, 15), (121, 16), (122, 5), (123, 6), (124, 15), (125, 16), (126, 5),     -- poll_restaurant_id = 28 / All products have to be from restaurant_id = 3
+(127, 1), (128, 2), (129, 11), (130, 12), (131, 1), (132, 2), (133, 11), (134, 12), (135, 1);     -- poll_restaurant_id = 29 / All products have to be from restaurant_id = 1

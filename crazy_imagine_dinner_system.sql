@@ -130,7 +130,7 @@ create table if not exists order_products(
 	id int generated always as identity,	
 	order_user_id int not null,
 	product_id int not null,
-	quantity int default 0,
+	quantity int default 1,
 	constraint pk_order_products_id
 		primary key(id),
 	constraint fk_order_user
