@@ -94,7 +94,7 @@ create table if not exists votes(
   	constraint fk_poll_restaurant
       foreign key(poll_restaurant_id, poll_id)
 	  	references poll_restaurants(id, poll_id)
-	  	on delete set null
+	  	on delete cascade
 	  	on update cascade
 );
 
