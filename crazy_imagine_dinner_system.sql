@@ -1,7 +1,7 @@
 /* create user table */
 create table if not exists users(
 	id int generated always as identity,
-	email varchar(50) unique not null, -- muy corto
+	email varchar(150) unique not null, -- muy corto
 	password varchar(255) not null, 
 	name varchar(255),
 	lastname varchar(255),
@@ -13,7 +13,9 @@ create table if not exists users(
 create table if not exists restaurants(
 	id int generated always as identity,
 	name varchar(255) unique not null,
-	opening_time timestamp not null,
+	opening_time time not null,
+	closing_time time not null,
+	address varchar(255),
 	primary key(id)
 );
 
@@ -92,7 +94,7 @@ create table if not exists votes(
   	constraint fk_poll_restaurant
       foreign key(poll_restaurant_id, poll_id)
 	  	references poll_restaurants(id, poll_id)
-	  	on delete set null
+	  	on delete cascade
 	  	on update cascade
 );
 
@@ -129,7 +131,7 @@ create table if not exists order_products(
 	id int generated always as identity,	
 	order_user_id int not null,
 	product_id int not null,
-	quantity int default 0,
+	quantity int default 1,
 	constraint pk_order_products_id
 		primary key(id),
 	constraint fk_order_user
