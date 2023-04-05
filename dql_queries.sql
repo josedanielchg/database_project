@@ -55,6 +55,21 @@ select * from products order by price limit 10;
 /* Return the users ordered by name */
 select * from food_types order by name limit 10;
 
+/* Return the product average by food_type */
+select round(avg(price::numeric), 2) as average from products where food_type_id = 7;
+
+/* Return the max closing time in the restaurants */
+select max(closing_time) as hour from restaurants;
+
+/* Return the min closing time in the restaurants */
+select min(closing_time) as hour from restaurants;
+
+/* Return the users quantity by email */
+SELECT substring(email from '@(.*)') as domain, COUNT(*) as total
+    FROM users
+    GROUP BY domain
+    ORDER BY total DESC;
+
 /* SELECT QUERIES WITH JOIN */
 
 /* return all products with the restaurant name */
