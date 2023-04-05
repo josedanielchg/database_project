@@ -1,4 +1,3 @@
-
 /* SIMPLE SELECT QUERIES */
 
 /* find the users that vote in the restaurant with the id = 1 */
@@ -100,12 +99,12 @@ select p.name as product_name, ft.name as foot_type from products p
     inner join food_types ft on (p.food_type_id = ft.id);
 
 /* Returns the number of polls in which a user has participated per month */
-select to_char(date_trunc('month', p.start_date), 'MM/YYYY') as month, count(*) as quantity
+select to_char(date_trunc('month', p.start_date), 'Month YYYY') as month, count(*) as quantity
     from users u
          inner join votes v on (u.id = v.user_id)
          inner join polls p on (v.poll_id = p.id)
     group by month, u.email
-    having u.email like '%amanda.brown@example.com%';
+    having u.email like '%amanda.brown@gmail.com%';
 
 /* Returns the number of food types a user has ordered */
 select ft.name as name, count(*) as quantity
@@ -123,4 +122,3 @@ select ft.name, count(*)
          inner join food_types ft on (p.food_type_id = ft.id)
     where p.price::numeric::float8 < 10.00
     group by ft.name
-

@@ -10,7 +10,7 @@ values
 ('alex.kim@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Alex', 'Kim'),                -- ID: 07
 ('jessica.garcia@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Jessica', 'Garcia'),    -- ID: 08
 ('kevin.wang@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Kevin', 'Wang'),            -- ID: 09
-('amanda.brown@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Amanda', 'Brown');        -- ID: 10
+('amanda.brown@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Amanda', 'Brown');        -- ID: 10
 
 
 /* insert data in restaurants table */
