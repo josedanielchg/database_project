@@ -1,16 +1,16 @@
 /* insert data in users table */
 insert into users (email, password, name, lastname)
 values 
-('john.doe@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'John', 'Doe'),                -- ID: 01
-('jane.smith@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Jane', 'Smith'),            -- ID: 02
+('john.doe@hotmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'John', 'Doe'),                -- ID: 01
+('jane.smith@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Jane', 'Smith'),            -- ID: 02
 ('david.jones@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'David', 'Jones'),          -- ID: 03
-('sara.lee@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Sara', 'Lee'),                -- ID: 04
+('sara.lee@yahoo.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Sara', 'Lee'),                -- ID: 04
 ('mike.chang@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Mike', 'Chang'),            -- ID: 05
-('emily.nguyen@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Emily', 'Nguyen'),        -- ID: 06
+('emily.nguyen@hotmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Emily', 'Nguyen'),        -- ID: 06
 ('alex.kim@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Alex', 'Kim'),                -- ID: 07
-('jessica.garcia@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Jessica', 'Garcia'),    -- ID: 08
-('kevin.wang@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Kevin', 'Wang'),            -- ID: 09
-('amanda.brown@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Amanda', 'Brown');        -- ID: 10
+('jessica.garcia@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Jessica', 'Garcia'),    -- ID: 08
+('kevin.wang@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Kevin', 'Wang'),            -- ID: 09
+('amanda.brown@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Amanda', 'Brown');        -- ID: 10
 
 
 /* insert data in restaurants table */
