@@ -64,3 +64,20 @@ select to_char(date_trunc('month', p.start_date), 'MM/YYYY') as month, count(*) 
          inner join polls p on (v.poll_id = p.id)
     group by month, u.email
     having u.email like '%amanda.brown@example.com%';
+
+/* Returns the number of food types a user has ordered */
+select ft.name as name, count(*) as quantity
+    from users u
+         inner join order_users ordu on (u.id = ordu.user_id)
+         inner join order_products op on (ordu.id = op.order_user_id)
+         inner join products p on (op.product_id = p.id)
+         inner join food_types ft on (p.food_type_id = ft.id)
+    where u.email like '%amanda.brown@example.com%'
+    group by ft.name;
+
+/* Returns the number of products belonging to a food type, as long as the product costs more than $10 */
+select ft.name, count(*)
+    from products p
+         inner join food_types ft on (p.food_type_id = ft.id)
+    where p.price::numeric::float8 < 10.00
+    group by ft.name
