@@ -1,6 +1,5 @@
 
-/*  Uno para calcular el surplus money cuando se inserte, actualice o elimine un registro en order_product. */
-
+/* this calcs the surplus money when insert, update or delete in order_product */
 create or replace function calculate_surplus_money_function()
     returns trigger
     language plpgsql
@@ -43,7 +42,7 @@ create or replace trigger calculate_suplus_money
 execute procedure calculate_surplus_money_function();
 
 
-/* Uno para validar el email antes de insertar un usuario nuevo. */
+/* This calidate the email when the user insert or update in users table */
 
 create or replace function validate_email_function()
     returns trigger
@@ -71,8 +70,7 @@ create or replace trigger validate_email_insert_or_update
     for each row
 execute procedure validate_email_function();
 
-
-/* Uno para asegurarse de que al insertar un poll_restaurant la columna is_winner no viene como true.. */
+/* This Verify (and update if is necessary) that is winner is false when the user creates a poll_restaurant */
 
 create or replace function check_winner_is_not_true_function()
     returns trigger
