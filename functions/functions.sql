@@ -20,6 +20,7 @@ $$;
 select get_votes_count(1);
 
 
+
 /* Retorna el numero de horas antes de que cierren todos los restaurantes. */
 drop type if exists remaning_time_type cascade;
 
@@ -44,6 +45,7 @@ end;
 $$ language plpgsql;
 
 select * from closing_remaning_time_per_restaurants();
+
 
 
 /* Retorna la cantidad de dinero gastada por el usuario y la gastada por la empresa en comida (tomando como parametro el id del usuario). */
@@ -81,4 +83,3 @@ end;
 $$;
 
 select company_spend_money, user_spend_money from get_spend_money(1);
-
