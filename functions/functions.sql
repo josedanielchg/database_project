@@ -1,5 +1,4 @@
-
-/* Contar el numero de votos en un poll_restaurant. */
+/* Count the number of votes in a poll_restaurant. */
 create or replace function get_votes_count(poll_restaurant int)
     returns int
     language plpgsql
@@ -21,7 +20,7 @@ select get_votes_count(1);
 
 
 
-/* Retorna el numero de horas antes de que cierren todos los restaurantes. */
+/* Return the number of hours before all the restaurants close. */
 drop type if exists remaning_time_type cascade;
 
 create type remaning_time_type as (
