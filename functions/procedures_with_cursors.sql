@@ -151,3 +151,60 @@ pero entonces no podriamos usar el loop -_- ... xD
 
 /* Calcular el porcentaje de votos que tuvo cada poll_restaurant (recibe el poll_id y rotarna nombre del restaurant y porcentaje de votos) */
 
+drop type if exists percentage_type cascade;
+
+create type percentage_type as (
+	poll_id integer,
+	restaurant_name varchar,
+	num_votes integer, 
+	percentage_total_votes numeric
+);
+
+create or replace function get_percentages(id_poll int)
+    returns setof percentage_type AS $$
+declare
+	total_votes integer;
+	poll_restaurant record;
+	restaurant record;
+	percentage percentage_type;
+	percentage_value NUMERIC(4, 2);
+	
+	votes_cursor cursor for select r.name as r_name, v.poll_restaurant_id as pr_id, count(*) as num_votes
+		from votes v
+            inner join poll_restaurants pr on (pr.id = v.poll_restaurant_id)
+            inner join polls p on (pr.poll_id =  p.id)
+			inner join restaurants r on (r.id = pr.restaurant_id)
+		where p.id = id_poll
+		group by v.poll_restaurant_id, r.name
+		order by num_votes desc;
+begin
+	total_votes := 0;
+	open votes_cursor;
+		FETCH votes_cursor INTO poll_restaurant;
+
+		-- Procesar las filas del cursor
+		WHILE FOUND LOOP
+			total_votes := total_votes + poll_restaurant.num_votes;
+			FETCH votes_cursor INTO poll_restaurant;
+
+			-- Reiniciar el cursor si se ha llegado al final del conjunto de resultados
+			IF NOT FOUND THEN
+				MOVE ABSOLUTE 0 IN votes_cursor;
+				loop
+					fetch votes_cursor into poll_restaurant;
+					exit when not found;
+					percentage_value := CAST(poll_restaurant.num_votes AS NUMERIC) * 100 / CAST(total_votes AS NUMERIC);
+					percentage := (
+						id_poll, poll_restaurant.r_name, 
+						poll_restaurant.num_votes, percentage_value
+					);
+        			RETURN NEXT percentage;
+				end loop;
+			END IF;
+		END LOOP;
+
+  CLOSE votes_cursor;
+END;
+$$ language plpgsql;
+
+select * from  get_percentages(6);
